@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Planet Pooyah</title>
+  <meta name="description" content="Send Planet Pooyah a message: questions from parents and learners, schools, partners and investors.">
+  <meta name="theme-color" content="#fbf6ea">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Planet Pooyah">
+  <meta property="og:description" content="Learn to read and write Persian, and the stories, history and traditions that come with it. For children and adults.">
+  <meta property="og:image" content="img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/icon-192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Vazirmatn:wght@700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Planet Pooyah home">
+        <picture>
+          <img src="img/logo-light.svg" alt="Planet Pooyah" width="198" height="42">
+        </picture>
+      </a>
+      <nav id="pages" aria-label="Pages">
+        <a href="mission.html">Our mission</a>
+        <a href="investors.html">Investors</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a class="nav-only-menu" href="app/">Try a lesson</a>
+      </nav>
+      <a class="btn btn-small" href="app/">Try a lesson</a>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="pages" onclick="this.setAttribute('aria-expanded', this.closest('.nav').classList.toggle('open'))"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section contact-page" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h1 id="contact-title">Get in touch</h1>
+          <p>Questions about lessons, ideas for new ones, schools, partners and investors: write to us below or at <a href="mailto:planetpooyah@gmail.com">planetpooyah@gmail.com</a>, or call <a href="tel:+19255653591">(925)&nbsp;565-3591</a>.</p>
+        </div>
+
+        <div class="contact-card">
+            <h2>Send a message</h2>
+            <p class="form-intro">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>
+
+            <!-- The API is contact-worker/ (a Cloudflare Worker). data-api and data-sitekey are public values. -->
+            <form class="form" id="contact-form" novalidate
+              data-api="https://planet-pooyah-contact.mokazemi0.workers.dev/contact"
+              data-sitekey="0x4AAAAAAFKcYe26jCQ7Sh3H"
+              data-fallback-email="planetpooyah@gmail.com">
+              <div class="form-row">
+                <div class="field">
+                  <label for="cf-name">Name <span class="req" aria-hidden="true">*</span></label>
+                  <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+                </div>
+                <div class="field">
+                  <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="cf-company">Company or school <span class="opt">(optional)</span></label>
+                  <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="120">
+                </div>
+                <div class="field">
+                  <label for="cf-when">Preferred date &amp; time for a call <span class="opt">(optional)</span></label>
+                  <input id="cf-when" name="when" type="datetime-local">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="cf-subject">Subject <span class="opt">(optional)</span></label>
+                <input id="cf-subject" name="subject" type="text" maxlength="150">
+              </div>
+
+              <div class="field">
+                <label for="cf-message">Message <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
+              </div>
+
+              <!-- Cloudflare Turnstile renders here, and only becomes visible if it needs the visitor to click. -->
+              <div class="form-turnstile" id="contact-turnstile"></div>
+
+              <div class="form-status" id="contact-status" role="alert" aria-live="assertive" hidden></div>
+
+              <button type="submit" class="btn form-submit">
+                <span class="form-spinner" aria-hidden="true"></span>
+                <span class="form-submit-label">Send message</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a href="index.html" class="footer-logo" aria-label="Planet Pooyah home">
+        <picture>
+          <img src="img/logo-light.svg" alt="Planet Pooyah" width="151" height="32" loading="lazy">
+        </picture>
+      </a>
+      <nav aria-label="Legal">
+        <a href="faq.html">FAQ</a>
+        <a href="mission.html">Our mission</a>
+        <a href="investors.html">Investors</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="app/privacy/">Privacy policy</a>
+        <a href="app/terms/">Terms</a>
+        <a href="https://www.linkedin.com/company/planet-pooyah">LinkedIn</a>
+      </nav>
+      <p>© 2026 Planet Pooyah</p>
+    </div>
+  </footer>
+
+  <script>
+    // Ported from the portfolio's contact form. Every check here is repeated on the
+    // server (contact-worker/); these only give faster, friendlier feedback.
+    (() => {
+      const FIELD_IDS = {
+        name: 'cf-name',
+        email: 'cf-email',
+        company: 'cf-company',
+        subject: 'cf-subject',
+        when: 'cf-when',
+        message: 'cf-message',
+      };
+      const REQUEST_TIMEOUT_MS = 20000;
+      const TOKEN_WAIT_MS = 15000;
+
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('contact-status');
+      const turnstileBox = document.getElementById('contact-turnstile');
+      if (!form || !status || !turnstileBox) return;
+
+      // Locally, talk to `npm run dev` in contact-worker/ with Cloudflare's always-pass test key.
+      const local = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+      const apiUrl = local ? 'http://localhost:8787/contact' : form.dataset.api;
+      const siteKey = local ? '1x00000000000000000000AA' : form.dataset.sitekey;
+
+      /**
+       * Loads Cloudflare Turnstile on first use and hands out single-use tokens.
+       * The widget stays invisible unless Cloudflare needs the visitor to click.
+       */
+      function createVerifier(container, key) {
+        let widgetId;
+        let token = '';
+        let loading = false;
+        const waiters = new Set();
+        const settle = (value) => {
+          waiters.forEach((resolve) => resolve(value));
+          waiters.clear();
+        };
+
+        function load() {
+          if (loading) return;
+          loading = true;
+          window.onContactTurnstileLoad = () => {
+            widgetId = window.turnstile?.render(container, {
+              sitekey: key,
+              action: 'contact',
+              theme: 'light',
+              appearance: 'interaction-only',
+              'response-field': false,
+              'refresh-expired': 'auto',
+              callback: (value) => {
+                token = value;
+                settle(value);
+              },
+              'expired-callback': () => {
+                token = '';
+              },
+              'error-callback': () => {
+                token = '';
+                settle('');
+              },
+              // Only now does the widget take up space (see .form-turnstile).
+              'before-interactive-callback': () => {
+                container.dataset.interactive = '';
+              },
+            });
+          };
+          const script = document.createElement('script');
+          script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onContactTurnstileLoad';
+          script.async = true;
+          script.onerror = () => {
+            script.remove();
+            loading = false;
+            settle('');
+          };
+          document.head.append(script);
+        }
+
+        /** True while the visible checkbox is waiting for the visitor to click it. */
+        const needsClick = () => !token && 'interactive' in container.dataset;
+
+        return {
+          load,
+          needsClick,
+          /** Resolves with a token, or an empty string if none arrives in time. */
+          token() {
+            load();
+            if (token) return Promise.resolve(token);
+            // No point waiting on a checkbox nobody has clicked yet.
+            if (needsClick()) return Promise.resolve('');
+            return new Promise((resolve) => {
+              const done = (value) => {
+                clearTimeout(timer);
+                waiters.delete(done);
+                resolve(value);
+              };
+              const timer = setTimeout(() => done(''), TOKEN_WAIT_MS);
+              waiters.add(done);
+            });
+          },
+          /** Tokens are single-use, so fetch a fresh one after every submission. */
+          reset() {
+            token = '';
+            delete container.dataset.interactive;
+            if (widgetId !== undefined) window.turnstile?.reset(widgetId);
+          },
+        };
+      }
+
+      const fallbackEmail = form.dataset.fallbackEmail || '';
+      const submit = form.querySelector('.form-submit');
+      const submitLabel = submit.querySelector('.form-submit-label');
+      const field = (name) => document.getElementById(FIELD_IDS[name]);
+      const fields = Object.keys(FIELD_IDS).map(field);
+      const required = ['name', 'email', 'message'].map(field);
+      const whenInput = field('when');
+
+      const verifier = apiUrl && siteKey ? createVerifier(turnstileBox, siteKey) : null;
+      let sending = false;
+
+      const emailLink = () => {
+        const link = document.createElement('a');
+        link.href = `mailto:${fallbackEmail}`;
+        link.textContent = fallbackEmail;
+        return link;
+      };
+
+      /** Shows a status message. Parts are text or nodes, never HTML strings. */
+      const show = (kind, ...parts) => {
+        status.replaceChildren(...parts);
+        status.dataset.kind = kind;
+        status.hidden = false;
+      };
+
+      const clearInvalid = (el) => {
+        el.removeAttribute('aria-invalid');
+        el.removeAttribute('aria-describedby');
+      };
+
+      /** Flags exactly these fields as invalid, points them at the message, and focuses the first. */
+      const markInvalid = (invalid) => {
+        fields.forEach(clearInvalid);
+        invalid.forEach((el) => {
+          el.setAttribute('aria-invalid', 'true');
+          el.setAttribute('aria-describedby', 'contact-status');
+        });
+        invalid[0]?.focus();
+      };
+
+      const setSending = (on) => {
+        sending = on;
+        submit.setAttribute('aria-disabled', String(on));
+        form.setAttribute('aria-busy', String(on));
+        submitLabel.textContent = on ? 'Sending…' : 'Send message';
+      };
+
+      const unavailable = (lead) => show('error', `${lead}, or email `, emailLink(), ' directly.');
+
+      fields.forEach((el) => el.addEventListener('input', () => clearInvalid(el)));
+
+      // Start the bot check as soon as someone begins filling in the form, so a
+      // token is usually ready by the time they press Send.
+      form.addEventListener('focusin', () => verifier?.load(), { once: true });
+
+      const handleFailure = (httpStatus, result) => {
+        const messages = Object.entries(result?.fields ?? {}).filter((entry) => typeof entry[1] === 'string');
+
+        if (httpStatus === 400 && messages.length) {
+          markInvalid(messages.filter(([name]) => name in FIELD_IDS).map(([name]) => field(name)));
+          show('error', messages.map(([, text]) => text).join(' '));
+        } else if (httpStatus === 429) {
+          show('error', 'You’ve sent several messages in the last minute. Please wait a moment and try again.');
+        } else if (httpStatus === 403 && result?.error === 'verification_failed') {
+          show('error', 'We couldn’t confirm this message came from a person. Please try sending it again.');
+        } else if (httpStatus === 413) {
+          show('error', 'Your message is too long to send. Please shorten it and try again.');
+        } else {
+          unavailable('Your message couldn’t be sent right now. Please try again in a few minutes');
+        }
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (sending) return;
+
+        const missing = required.filter((el) => !el.value.trim());
+        if (missing.length) {
+          markInvalid(missing);
+          show('error', 'Please fill in all required fields: name, email, and message.');
+          return;
+        }
+        const email = field('email');
+        if (!email.checkValidity()) {
+          markInvalid([email]);
+          show('error', 'Please enter a valid email address.');
+          return;
+        }
+        if (whenInput.validity.badInput) {
+          markInvalid([whenInput]);
+          show('error', 'Please enter a complete date and time, or clear the field.');
+          return;
+        }
+        markInvalid([]);
+
+        if (!verifier) {
+          show('notice', 'The contact form isn’t available right now. Please email ', emailLink(), ' instead.');
+          return;
+        }
+
+        setSending(true);
+        status.hidden = true;
+        let tokenUsed = false;
+        try {
+          const turnstileToken = await verifier.token();
+          if (!turnstileToken) {
+            if (verifier.needsClick()) {
+              show('error', 'Please tick “Verify you are human” above the button, then send your message again.');
+            } else {
+              show('error', 'We couldn’t verify your browser. Please try again in a moment, or email ', emailLink(), '.');
+            }
+            return;
+          }
+
+          const data = new FormData(form);
+          const value = (key) => String(data.get(key) ?? '').trim();
+          const when = value('when');
+          const payload = {
+            name: value('name'),
+            email: value('email'),
+            company: value('company'),
+            subject: value('subject'),
+            when,
+            timeZone: when ? Intl.DateTimeFormat().resolvedOptions().timeZone : '',
+            message: value('message'),
+            turnstileToken,
+          };
+
+          tokenUsed = true;
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            credentials: 'omit',
+            referrerPolicy: 'strict-origin',
+            signal: 'timeout' in AbortSignal ? AbortSignal.timeout(REQUEST_TIMEOUT_MS) : undefined,
+          });
+          const result = await response.json().catch(() => null);
+
+          if (response.ok && result?.ok) {
+            const firstName = payload.name.split(' ')[0];
+            form.reset();
+            show('success', `Thanks, ${firstName}! Your message is on its way, and we'll get back to you at ${payload.email}.`);
+            return;
+          }
+          handleFailure(response.status, result);
+        } catch {
+          unavailable('Your message couldn’t be sent. Check your connection and try again');
+        } finally {
+          if (tokenUsed) verifier.reset();
+          setSending(false);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

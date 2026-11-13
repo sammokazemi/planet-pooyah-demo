@@ -1,0 +1,2091 @@
+/* Planet Pooyah website. Tokens and their roles: DESIGN.md. Values come from the app (app/globals.css). */
+:root {
+  color-scheme: light; /* light only: the site stays ivory even when the device is in dark mode */
+  --bg: #fbf6ea;
+  --bg-alt: #f4ecda;
+  --surface: #fffdf8;
+  --ink: #2b2333;
+  --ink-soft: #4a4152;
+  --muted: #6c6274;
+  --line: #e8dcc3;
+  --green: #2f7a35;
+  --green-deep: #1f5a24;
+  --green-soft: #dff0d9;
+  --on-green: #ffffff;
+  --saffron: #e09a1a; /* the logo's پ: buttons */
+  --on-saffron: #2b2333;
+  --saffron-ink: #8a5f10; /* saffron text on light surfaces */
+  --teal: #0d7d77;
+  --teal-soft: #d9f1ee;
+  --gold: #c8962b;
+  --gold-strong: #8a5f10;
+  --gold-tint: #f6ebd2;
+  --gold-metal: linear-gradient(135deg, #c4892a 0%, #e9b64d 50%, #c4892a 100%);
+  --pomegranate: #b8433a;
+  --pomegranate-soft: #fbe4df;
+  --frame: #2b2333;
+  --frame-rim: #8b8491; /* titanium edge and side buttons of the iPhone frame */
+  --screen: #fefdf9; /* the app's bar color, so the status bar meets the screenshot seamlessly */
+  --shadow-1: 0 1px 2px rgba(74, 52, 18, 0.06), 0 4px 12px rgba(74, 52, 18, 0.06);
+  --shadow-2: 0 2px 4px rgba(74, 52, 18, 0.06), 0 12px 32px rgba(74, 52, 18, 0.1);
+  --highlight: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+
+  --font: "Nunito", system-ui, sans-serif;
+  --font-fa: "Vazirmatn", "Nunito", sans-serif;
+  --text-note: 0.875rem;
+  --text-body: 1.0625rem;
+  --text-lead: 1.1875rem;
+  --text-h3: 1.375rem;
+  --text-h2: clamp(1.875rem, 1.3rem + 2.2vw, 2.75rem);
+  --text-h1: clamp(2.125rem, 1.4rem + 2.6vw, 3rem);
+  --measure: 62ch;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-24: 96px;
+  --section: var(--sp-16);
+
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-phone: 36px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --section: var(--sp-24);
+  }
+}
+
+/* --- Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-h1);
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+p + p {
+  margin-top: var(--sp-4);
+}
+
+a {
+  color: var(--green);
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+[lang="fa"] {
+  font-family: var(--font-fa);
+}
+
+.fa-inline {
+  font-weight: 700;
+  font-size: 1.15em;
+}
+
+.wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: var(--sp-4);
+}
+
+@media (min-width: 640px) {
+  .wrap {
+    padding-inline: var(--sp-6);
+  }
+}
+
+.skip {
+  position: absolute;
+  left: var(--sp-4);
+  top: -100px;
+  z-index: 20;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--r-sm);
+  font-weight: 700;
+}
+
+.skip:focus {
+  top: var(--sp-3);
+}
+
+/* --- Buttons (the app's shape: soft top light, warm shadow, presses in), in the logo's saffron */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: var(--sp-3) var(--sp-6);
+  border: 2px solid transparent;
+  border-radius: var(--r-md);
+  background: var(--saffron);
+  color: var(--on-saffron);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: var(--highlight), var(--shadow-1);
+  transition: transform 0.1s, filter 0.15s;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-quiet {
+  background: var(--surface);
+  color: var(--saffron-ink);
+  border-color: var(--line);
+  box-shadow: var(--shadow-1);
+}
+
+.btn-small {
+  min-height: 44px;
+  padding: var(--sp-2) var(--sp-4);
+}
+
+/* --- Navigation */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  min-height: 68px;
+}
+
+.nav-logo img {
+  width: auto;
+  height: 36px;
+}
+
+@media (min-width: 640px) {
+  .nav-logo img {
+    height: 42px;
+  }
+}
+
+.nav nav {
+  display: none;
+  gap: var(--sp-6);
+  margin-left: auto;
+}
+
+.nav nav a {
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-decoration: none;
+  padding: var(--sp-2) 0;
+  white-space: nowrap;
+}
+
+.nav nav a:hover,
+.nav nav a[aria-current="page"] {
+  color: var(--green);
+}
+
+.nav .btn-small {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Phones: "Try a lesson" lives in the menu instead, so it shows only once. */
+@media (max-width: 759.98px) {
+  .nav .btn-small {
+    display: none;
+  }
+}
+
+/* Phones: page links fold into a menu button. */
+.nav-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  /* Pull the hit area into the gutter so the drawn lines line up with the page edge. */
+  margin: 0 calc(-1 * var(--sp-3)) 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.nav-toggle path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav.open .nav-toggle path:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav.open .nav-toggle path:nth-child(2) {
+  opacity: 0;
+}
+
+.nav.open .nav-toggle path:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav.open nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: var(--sp-2) var(--sp-4) var(--sp-4);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav.open nav a {
+  padding: var(--sp-3) 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle path {
+    transition: none;
+  }
+}
+
+/* Three page links fit beside the logo and button from tablets up. */
+@media (min-width: 760px) {
+  .nav nav,
+  .nav.open nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--sp-6);
+    position: static;
+    padding: 0;
+    border: 0;
+  }
+
+  .nav.open nav a {
+    padding: var(--sp-2) 0;
+  }
+
+  .nav .btn-small {
+    margin-left: var(--sp-2);
+  }
+
+  .nav-toggle,
+  .nav .nav-only-menu {
+    display: none;
+  }
+}
+
+/* --- Phone frame around a real app screenshot */
+
+.phone {
+  margin: 0;
+  width: min(260px, 66vw);
+  padding: 7px;
+  border-radius: var(--r-phone);
+  background: var(--frame);
+  box-shadow: var(--shadow-2);
+}
+
+.phone img {
+  width: 100%;
+  border-radius: calc(var(--r-phone) - 7px);
+}
+
+/* A phone drawn as an iPhone: rim, side buttons, status bar with Dynamic Island, home indicator.
+   Sizes inside the screen use cqw so the parts keep an iPhone's proportions at any phone width. */
+
+.iphone {
+  width: min(230px, 66vw);
+  position: relative;
+  box-shadow: 0 0 0 2px var(--frame-rim), var(--shadow-2);
+}
+
+/* Action button and volume up/down on the left, drawn as one strip with gaps. */
+.iphone::before,
+.iphone::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  border-radius: 2px;
+}
+
+.iphone::before {
+  left: -5px;
+  top: 14%;
+  height: 24%;
+  background: linear-gradient(
+    var(--frame-rim) 0 15%,
+    transparent 15% 34%,
+    var(--frame-rim) 34% 63%,
+    transparent 63% 70%,
+    var(--frame-rim) 70%
+  );
+}
+
+/* Side button on the right. */
+.iphone::after {
+  right: -5px;
+  top: 25%;
+  height: 12%;
+  background: var(--frame-rim);
+}
+
+.iphone-screen {
+  container-type: inline-size;
+  overflow: hidden;
+  border-radius: calc(var(--r-phone) - 7px);
+  background: var(--screen);
+}
+
+.iphone .iphone-screen img {
+  display: block;
+  border-radius: 0;
+}
+
+.iphone-status {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 14.5cqw;
+  padding: 0 7cqw 0 10cqw;
+  color: var(--ink);
+  font: 600 4.4cqw/1 system-ui, -apple-system, sans-serif;
+}
+
+.iphone-status svg {
+  width: 17cqw;
+  fill: currentColor;
+}
+
+.iphone-status .stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.iphone-status .faint {
+  opacity: 0.4;
+}
+
+.iphone-status rect.stroke {
+  stroke-width: 1;
+}
+
+/* The Dynamic Island, with the front camera's lens on its right. */
+.iphone-island {
+  position: absolute;
+  top: 2.8cqw;
+  left: 50%;
+  width: 31cqw;
+  height: 9cqw;
+  transform: translateX(-50%);
+  border-radius: 99px;
+  background:
+    radial-gradient(circle at calc(100% - 4.5cqw) 50%, #26324a 0 1.2cqw, #11151d 1.3cqw 1.7cqw, transparent 1.8cqw),
+    #000;
+}
+
+/* Shown only once rows sit side by side; on phones the text stands alone. */
+@media (max-width: 759.98px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* The home indicator, under the app's tab bar. */
+.iphone-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7cqw;
+}
+
+.iphone-home::after {
+  content: "";
+  width: 34cqw;
+  height: 1.3cqw;
+  border-radius: 99px;
+  background: var(--ink);
+}
+
+/* --- Hero */
+
+.hero {
+  padding-block: var(--sp-8) var(--sp-12);
+}
+
+.hero-grid {
+  display: grid;
+  gap: var(--sp-12);
+}
+
+.hero-text h1 {
+  max-width: 15ch;
+}
+
+.lead {
+  margin-top: var(--sp-6);
+  max-width: 52ch;
+  font-size: var(--text-lead);
+  color: var(--ink-soft);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+}
+
+.note {
+  margin-top: var(--sp-4);
+  font-size: var(--text-note);
+  color: var(--muted);
+}
+
+.hero-visual {
+  position: relative;
+  justify-self: center;
+}
+
+.phone-hero {
+  width: min(236px, 62vw);
+}
+
+.hero-simorgh {
+  position: absolute;
+  left: -56px;
+  bottom: 120px;
+  width: 100px;
+  filter: drop-shadow(0 6px 10px rgba(74, 52, 18, 0.18));
+}
+
+@media (max-width: 479px) {
+  .hero-simorgh {
+    left: -28px;
+    width: 80px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding-block: var(--sp-12) var(--sp-16);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+  }
+
+  .hero-simorgh {
+    left: -80px;
+    width: 120px;
+  }
+}
+
+/* --- The problem */
+
+.problem {
+  background: var(--bg-alt);
+  padding-block: var(--section);
+}
+
+.problem-grid {
+  display: grid;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+/* The drawing: under the text on phones, on the left from 900px. */
+.problem-art {
+  order: 1;
+  width: min(380px, 100%);
+  justify-self: center; /* its paper background is transparent, so it sits on the section's own tone */
+}
+
+.problem h2 {
+  max-width: 18ch;
+  margin-bottom: var(--sp-8);
+  color: var(--ink);
+}
+
+.problem-text {
+  max-width: var(--measure);
+  color: var(--ink-soft);
+  font-size: var(--text-lead);
+}
+
+.problem-text h3 {
+  margin-bottom: var(--sp-2);
+  color: var(--ink);
+}
+
+.problem-text p + h3 {
+  margin-top: var(--sp-8);
+}
+
+@media (min-width: 900px) {
+  .problem-grid {
+    grid-template-columns: 5fr 6fr;
+    gap: var(--sp-16);
+  }
+
+  .problem-art {
+    order: 0;
+    width: min(480px, 100%); /* the text column sets the section's height, so the drawing can grow */
+  }
+}
+
+/* --- Sections */
+
+.section {
+  padding-block: var(--section);
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-head {
+  max-width: var(--measure);
+  margin-bottom: var(--sp-12);
+}
+
+.section-head p {
+  margin-top: var(--sp-4);
+  font-size: var(--text-lead);
+  color: var(--ink-soft);
+}
+
+.row {
+  display: grid;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+.row-text {
+  order: -1;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+.row-text h2,
+.row-text h3 {
+  color: var(--ink);
+  margin-bottom: var(--sp-4);
+}
+
+.row-lead {
+  font-size: var(--text-lead);
+}
+
+.row-lead + h3 {
+  margin-top: var(--sp-8);
+}
+
+@media (min-width: 760px) {
+  .row {
+    grid-template-columns: auto 1fr;
+    gap: var(--sp-16);
+  }
+
+  .row .row-text {
+    order: 0;
+  }
+
+  .row-flip {
+    grid-template-columns: 1fr auto;
+  }
+
+  .row-flip .row-text {
+    order: -1;
+  }
+}
+
+/* --- More than a language app: literature, culture and history */
+
+.more {
+  position: relative;
+  background: var(--bg-alt);
+  color: var(--ink);
+  padding-block: var(--sp-12);
+}
+
+.more .section-head p,
+.track p {
+  color: var(--ink-soft);
+}
+
+/* A row of Persepolis rosettes along the top edge, like the friezes on the palace stairs. */
+.frieze {
+  position: absolute;
+  inset: var(--sp-6) 0 auto;
+  height: 28px;
+  background: var(--gold);
+  opacity: 0.35;
+  -webkit-mask: url("img/rosette.svg") repeat-x center / 28px 28px;
+  mask: url("img/rosette.svg") repeat-x center / 28px 28px;
+}
+
+/* The section under each page's hero opens with the same frieze. */
+.after-hero {
+  position: relative;
+  padding-top: calc(var(--section) + var(--sp-6));
+}
+
+.tracks {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+}
+
+.track .track-art {
+  order: 1;
+  margin-top: var(--sp-4);
+  width: min(150px, 40vw);
+}
+
+.track h3 {
+  margin-bottom: var(--sp-2);
+}
+
+.track p {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* Small screens: picture beside the text, so three stacked tracks stay short. */
+@media (max-width: 899px) {
+  .track {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    column-gap: var(--sp-4);
+    align-items: start;
+  }
+
+  .track .track-art {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin: 0;
+    width: 112px;
+  }
+
+  .track > :not(.track-art) {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .tracks {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-8);
+  }
+
+  .track .track-art {
+    order: -1;
+    margin: 0 0 var(--sp-4);
+    width: min(260px, 100%);
+  }
+}
+
+/* --- Coming back tomorrow */
+
+.phones-pair {
+  align-items: flex-start; /* each frame hugs its screenshot instead of stretching to the taller one */
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: center;
+}
+
+.phones-pair .phone {
+  width: min(220px, 42vw);
+}
+
+.phones-pair .phone + .phone {
+  margin-top: var(--sp-12);
+}
+
+/* --- Coming to the app stores: a short centered band */
+
+.apps {
+  background: var(--green-soft);
+  padding-block: var(--sp-12);
+  text-align: center;
+}
+
+.apps h2 {
+  margin: 0 auto var(--sp-4);
+  max-width: 22ch;
+}
+
+.apps p {
+  margin-inline: auto;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+/* The mascots playing on phones and tablets: two above the text on phones, two on each side from 900px. */
+.apps-grid {
+  display: grid;
+  grid-template-areas: "left right" "text text";
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.apps-text {
+  grid-area: text;
+}
+
+.apps-cast {
+  display: flex;
+  justify-content: center;
+}
+
+.apps-cast:first-child {
+  grid-area: left;
+}
+
+.apps-cast:last-child {
+  grid-area: right;
+}
+
+.apps-cast img {
+  width: min(90px, 22vw);
+  height: auto;
+}
+
+@media (min-width: 900px) {
+  .apps-grid {
+    grid-template-areas: "left text right";
+    grid-template-columns: 1fr minmax(0, 2fr) 1fr;
+    gap: var(--sp-6);
+  }
+
+  .apps-cast img {
+    width: min(130px, 50%);
+  }
+}
+
+/* --- Questions */
+
+.faq-grid {
+  display: grid;
+  gap: var(--sp-8);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: 56px;
+  padding-block: var(--sp-3);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq details p {
+  max-width: var(--measure);
+  padding-bottom: var(--sp-4);
+  color: var(--ink-soft);
+}
+
+@media (min-width: 900px) {
+  .faq-grid {
+    grid-template-columns: 4fr 7fr;
+    gap: var(--sp-16);
+  }
+}
+
+/* --- Closing */
+
+.closing {
+  padding-block: var(--section);
+  background: var(--bg-alt);
+}
+
+.closing-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.closing-scene {
+  width: min(555px, 100%);
+  margin-top: var(--sp-8);
+}
+
+.closing p {
+  margin: var(--sp-3) 0 var(--sp-6);
+  font-size: var(--text-lead);
+  color: var(--ink-soft);
+}
+
+/* --- Footer */
+
+.footer {
+  padding-block: var(--sp-8);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--text-note);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4) var(--sp-8);
+}
+
+.footer img {
+  width: auto;
+  height: 32px;
+}
+
+.footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--sp-6);
+}
+
+.footer a {
+  color: var(--ink-soft);
+  font-weight: 700;
+  display: inline-block;
+  padding-block: var(--sp-2);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--green);
+}
+
+.footer p {
+  margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+
+/* --- FAQ page (faq.html): same layout as a section, with the page's h1 at section-heading size */
+
+.faq-page h1 {
+  font-size: var(--text-h2);
+}
+
+.faq-page {
+  min-height: calc(100vh - 220px);
+}
+
+/* --- Citations: numbered superscript links and the source list at the end of a page */
+
+sup {
+  line-height: 0;
+  font-size: 0.75em;
+}
+
+sup a {
+  text-decoration: none;
+  font-weight: 700;
+  padding-inline: 1px;
+}
+
+.sources {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--line);
+  font-size: var(--text-note);
+}
+
+.sources h2 {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--text-h3);
+}
+
+.sources ol {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.sources li {
+  overflow-wrap: anywhere; /* long URLs must not push the page sideways on phones */
+}
+
+.sources li:target {
+  background: var(--gold-tint);
+}
+
+/* --- Mission page (mission.html): home-page sections with illustrations, a generations graphic and a stats band */
+
+.mission-hero-grid {
+  display: grid;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+.mission-lead {
+  max-width: var(--measure);
+  margin-top: var(--sp-6);
+  font-size: var(--text-lead);
+  color: var(--ink-soft);
+}
+
+.mission-sticker {
+  width: min(320px, 80%);
+  justify-self: center;
+}
+
+@media (min-width: 900px) {
+  .mission-hero-grid {
+    grid-template-columns: 3fr 2fr;
+    gap: var(--sp-16);
+  }
+}
+
+.generations,
+.findings {
+  display: grid;
+  gap: var(--sp-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.generations li,
+.finding {
+  padding: var(--sp-6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+
+.gen-num {
+  display: block;
+  margin-bottom: var(--sp-3);
+  font-family: var(--font-fa);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--saffron-ink);
+}
+
+/* Each research card carries an icon for its subject in the top-right corner, drawn in the app's icon style (app/icons.tsx). */
+.finding {
+  position: relative;
+  padding-right: calc(var(--sp-6) + 32px);
+}
+
+.finding-icon {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  color: var(--saffron-ink);
+}
+
+.generations h3,
+.finding h3 {
+  margin-bottom: var(--sp-2);
+  color: var(--ink);
+}
+
+@media (min-width: 760px) {
+  .generations {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .findings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stats-band {
+  text-align: center;
+}
+
+.stats-band h2 {
+  margin-inline: auto;
+  max-width: 22ch;
+}
+
+/* Desktop: the title, with its note under it, beside the chart. */
+@media (min-width: 900px) {
+  .stats-band .wrap:has(.chart-wide) {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto 1fr;
+    column-gap: var(--sp-12);
+    align-items: start;
+    text-align: left;
+  }
+
+  .stats-band .wrap:has(.chart-wide) h2 {
+    margin: 0;
+    grid-column: 1;
+  }
+
+  .stats-band .chart-wide {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: none;
+    margin: 0;
+  }
+
+  .stats-band .market-note {
+    grid-column: 1;
+    margin: var(--sp-4) 0 0;
+  }
+}
+
+.stats {
+  display: grid;
+  gap: var(--sp-6);
+  margin: var(--sp-8) 0 0;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--sp-1);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: clamp(2.5rem, 1.8rem + 3vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--green-deep);
+}
+
+.stats dt {
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.stats-note {
+  max-width: var(--measure);
+  margin: var(--sp-8) auto 0;
+  font-size: var(--text-note);
+  color: var(--ink-soft);
+}
+
+@media (min-width: 760px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pullquote {
+  margin: var(--sp-6) 0 0;
+  padding: var(--sp-4) var(--sp-6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.checks {
+  display: grid;
+  gap: var(--sp-3);
+  margin: var(--sp-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checks li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.checks li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.45em;
+  width: 7px;
+  height: 12px;
+  border: solid var(--green);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.closing .matters {
+  max-width: var(--measure);
+}
+
+.section > .sources {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* --- Investors page (investors.html): KPIs, charts, plan tiers and a comparison table */
+
+.kpis {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0 0 var(--sp-8);
+}
+
+.kpis > div {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+
+.kpis dt {
+  order: 1;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.kpis dd {
+  margin: 0;
+}
+
+.kpis dd:first-of-type {
+  order: 0;
+  font-size: clamp(2.25rem, 1.7rem + 2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.kpis .kpi-delta {
+  order: 2;
+  margin-top: var(--sp-1);
+  font-size: var(--text-note);
+  color: var(--muted);
+}
+
+.kpis-stack {
+  margin: var(--sp-4) 0 0;
+}
+
+.kpis-stack > div {
+  padding: var(--sp-4) 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+}
+
+/* Revenue card: this year and next side by side, the subscription share below, so it matches the users chart's height. */
+.kpis-stack {
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--sp-6);
+  row-gap: 0;
+}
+
+.kpis-stack > div:last-child {
+  grid-column: 1 / -1;
+}
+
+.kpis-stack dd:first-of-type {
+  font-size: clamp(2rem, 1.6rem + 1.2vw, 2.5rem);
+}
+
+@media (min-width: 760px) {
+  .kpis:not(.kpis-stack) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.meter {
+  order: 3;
+  height: 8px;
+  margin-top: var(--sp-3);
+  border-radius: 999px;
+  background: var(--gold-tint);
+}
+
+.meter span {
+  display: block;
+  width: var(--v);
+  height: 100%;
+  border-radius: 999px;
+  background: var(--gold);
+}
+
+.chart-grid {
+  display: grid;
+  gap: var(--sp-6);
+  align-items: stretch; /* side by side, both cards share one height */
+}
+
+@media (min-width: 900px) {
+  .chart-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chart {
+  margin: 0;
+  padding: var(--sp-6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+/* What each one teaches: topic chips, faded where a product doesn't teach it. */
+.coverage {
+  display: grid;
+  gap: var(--sp-2);
+  margin: var(--sp-4) 0 0;
+}
+
+.coverage dt {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.coverage dd {
+  margin: 0 0 var(--sp-3);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: var(--sp-1) 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: var(--text-note);
+  font-weight: 700;
+}
+
+.chip-off {
+  border: 1px dashed var(--line);
+  background: none;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.chart:has(.niche-stat) {
+  display: flex;
+  flex-direction: column;
+}
+
+.niche-stat {
+  margin-top: auto; /* sits at the card's foot, level with the chart beside it */
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.niche-stat strong {
+  display: block;
+  font-size: clamp(2rem, 1.6rem + 1.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.chart-wide {
+  max-width: 760px;
+  margin: var(--sp-8) auto 0;
+}
+
+.chart h3,
+.chart-title {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--ink);
+}
+
+.chart figcaption p {
+  margin-top: var(--sp-1);
+  font-size: var(--text-note);
+  color: var(--muted);
+}
+
+.bars {
+  display: grid;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.bar-row {
+  display: grid;
+  gap: var(--sp-1);
+  border-radius: 6px;
+}
+
+.bar-name {
+  font-size: var(--text-note);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.bar-track {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+/* Thin bars, square at the baseline and rounded at the data end; the value sits at the tip in ink.
+   Bars use 75% of the track at most, so the longest one still has room for its value. */
+.bar {
+  flex: none;
+  width: calc(var(--v) * 0.75);
+  height: 20px;
+  border-radius: 0 4px 4px 0;
+  background: var(--gold);
+}
+
+.bar-val {
+  flex: none;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-row:hover .bar,
+.bar-row:focus-visible .bar,
+.seg:hover,
+.seg:focus-visible {
+  filter: brightness(1.1);
+}
+
+/* The tall segmented bar: one whole, each part a block with its share printed inside at 19px bold. */
+.segbar {
+  display: flex;
+  gap: 2px;
+  margin-top: var(--sp-6);
+}
+
+.seg {
+  flex: 0 0 calc(var(--v) - 1px);
+  height: 28px;
+  padding-inline: var(--sp-2);
+  border-radius: 4px;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 28px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* Gold for the first group, pale sand for the second: told apart by lightness, and every segment carries its label. */
+.seg-1,
+.swatch-1 {
+  background: var(--gold);
+}
+
+.seg-2,
+.swatch-2 {
+  background: #e6d2a2;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-6);
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-note);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.chart-note {
+  margin-top: var(--sp-4);
+  font-size: var(--text-note);
+}
+
+.table-view {
+  margin-top: var(--sp-4);
+  font-size: var(--text-note);
+}
+
+.table-view summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.table-view table,
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-view table {
+  margin-top: var(--sp-3);
+}
+
+.table-view th,
+.table-view td {
+  padding: var(--sp-2) var(--sp-2) var(--sp-2) 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table-view td {
+  font-variant-numeric: tabular-nums;
+}
+
+.tip {
+  position: absolute;
+  z-index: 20;
+  max-width: 260px;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: var(--text-note);
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.market-note {
+  max-width: var(--measure);
+  margin: var(--sp-8) auto 0;
+  color: var(--ink-soft);
+}
+
+.tiers {
+  display: grid;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.tier {
+  padding: var(--sp-6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+
+.tier h3 {
+  margin-bottom: var(--sp-1);
+}
+
+.tier > p {
+  font-size: var(--text-note);
+  color: var(--muted);
+}
+
+/* The gold frame of the app's Plus ad. */
+.tier-plus {
+  border: 3px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--gold-metal) border-box;
+}
+
+.tier-plus h3 {
+  color: var(--gold-strong);
+}
+
+.tier .checks {
+  margin-top: var(--sp-4);
+}
+
+@media (min-width: 640px) {
+  .tiers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.compare-scroll {
+  overflow-x: auto;
+}
+
+.compare {
+  min-width: 760px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.compare th,
+.compare td {
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+
+.compare thead th {
+  color: var(--ink);
+}
+
+.compare tbody th {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.compare tr:last-child > * {
+  border-bottom: 0;
+}
+
+.compare .compare-us {
+  background: var(--green-soft);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.compare td span {
+  display: inline-block;
+  width: 18px;
+  margin-right: var(--sp-2);
+  text-align: center;
+  font-weight: 800;
+}
+
+.compare .yes::before {
+  content: "✓";
+  color: var(--green);
+}
+
+.compare .no::before {
+  content: "✕";
+  color: var(--pomegranate);
+}
+
+.compare .maybe::before {
+  content: "~";
+  color: var(--muted);
+}
+
+.mission-hero-art {
+  width: min(640px, 100%);
+  justify-self: center;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-2);
+}
+
+/* Art whose background is already the page color: no card edge, so it melts into the section. */
+.art-blend {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* With no card edge the art reads smaller, so it gets half the hero instead of two fifths. */
+@media (min-width: 900px) {
+  .mission-hero-grid:has(.art-blend) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* On desktop the text column matches the Investors hero (3fr), and a smaller gap keeps the wide picture as big as possible on the right. */
+@media (min-width: 900px) {
+  .mission-hero-grid:has(.mission-hero-art) {
+    gap: var(--sp-8);
+  }
+
+  .mission-hero-art {
+    justify-self: end;
+  }
+}
+
+.pullquote footer {
+  margin-top: var(--sp-2);
+  text-align: right;
+  font-size: var(--text-note);
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.pullquote cite {
+  font-style: normal;
+}
+
+.pullquote cite::before {
+  content: "— ";
+}
+
+.want-art {
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
+}
+
+/* Phones: text, then the picture, then Farid's quote under it. */
+@media (max-width: 759.98px) {
+  .row:has(.want-art) {
+    gap: 0;
+  }
+
+  .row:has(.want-art) .row-text {
+    display: contents;
+  }
+
+  .row:has(.want-art) .row-text > :not(.pullquote) {
+    order: -1;
+  }
+
+  .row:has(.want-art) .want-art {
+    margin-top: var(--sp-8);
+  }
+}
+
+/* A wide picture or the screenshot grid would swallow an auto-sized column, so these rows split evenly. */
+@media (min-width: 760px) {
+  .row:has(.want-art),
+  .row:has(.shots) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Five square app screenshots: one large on top, four small in a row below. Each opens bigger on click. */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  width: min(440px, 100%);
+  justify-self: center;
+}
+
+.shot {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-md);
+  background: none;
+  cursor: zoom-in;
+  transition: transform 0.15s;
+}
+
+.shot:hover {
+  transform: scale(1.02);
+}
+
+.shot:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.shot:first-child {
+  grid-column: 1 / -1;
+}
+
+.shots img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The enlarged screenshot. */
+.shot-view {
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+}
+
+.shot-view::backdrop {
+  background: rgba(43, 35, 51, 0.75);
+}
+
+.shot-view img {
+  width: min(720px, 92vw, 85vh);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-2);
+}
+
+.shot-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+}
+
+/* Previous and next: beside the picture, or over its edges when the screen is too narrow for that. */
+.shot-nav {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 32px;
+  line-height: 1;
+  padding-bottom: 4px;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+}
+
+.shot-prev {
+  left: -60px;
+}
+
+.shot-next {
+  right: -60px;
+}
+
+.shot-nav:focus-visible,
+.shot-close:focus-visible {
+  outline: 3px solid var(--surface);
+  outline-offset: 3px;
+}
+
+@media (max-width: 879.98px) {
+  .shot-prev {
+    left: 8px;
+  }
+
+  .shot-next {
+    right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot {
+    transition: none;
+  }
+}
+
+.works-art {
+  width: 280px;
+  max-width: 100%;
+  justify-self: center;
+}
+
+/* Beside the small Simorgh, the text runs the full width of its column instead of stopping at the reading measure. */
+.row:has(.works-art) .row-text {
+  max-width: none;
+}
+
+/* --- Contact page (contact.html): the form posts to contact-worker/ */
+
+.contact-card {
+  padding: var(--sp-6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+@media (min-width: 640px) {
+  .contact-card {
+    padding: var(--sp-8);
+  }
+}
+
+.contact-card h2 {
+  font-size: var(--text-h3);
+}
+
+.form-intro {
+  margin: var(--sp-1) 0 var(--sp-6);
+  font-size: var(--text-note);
+  color: var(--muted);
+}
+
+.form,
+.form-row {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.field label {
+  font-size: var(--text-note);
+  font-weight: 700;
+}
+
+.req {
+  color: var(--pomegranate);
+}
+
+.opt {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--sp-3) var(--sp-4);
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: var(--r-sm);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--green);
+}
+
+.field [aria-invalid="true"] {
+  border-color: var(--pomegranate);
+}
+
+.form-status {
+  padding: var(--sp-3) var(--sp-4);
+  font-size: 0.95rem;
+  border-radius: var(--r-sm);
+  border: 1px solid;
+}
+
+.form-status[data-kind="error"] {
+  color: #8c2a23;
+  background: var(--pomegranate-soft);
+  border-color: #efb9b1;
+}
+
+.form-status[data-kind="notice"] {
+  color: var(--gold-strong);
+  background: var(--gold-tint);
+  border-color: var(--gold);
+}
+
+.form-status[data-kind="success"] {
+  color: var(--green-deep);
+  background: var(--green-soft);
+  border-color: #a9d3a0;
+}
+
+.form-status a {
+  color: inherit;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Turnstile stays invisible unless it needs a click. Until then, keep its
+   container out of the grid so it doesn't add an empty row and gap. */
+.form-turnstile:not([data-interactive]) {
+  position: absolute;
+}
+
+.form-submit {
+  justify-self: start;
+  gap: var(--sp-2);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.form-submit[aria-disabled="true"] {
+  cursor: progress;
+  opacity: 0.8;
+  transform: none;
+}
+
+.form-spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: form-spin 0.8s linear infinite;
+}
+
+.form-submit[aria-disabled="true"] .form-spinner {
+  display: inline-block;
+}
+
+@keyframes form-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-spinner {
+    animation-duration: 2.4s;
+  }
+}

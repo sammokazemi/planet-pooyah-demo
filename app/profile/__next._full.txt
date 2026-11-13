@@ -1,0 +1,41 @@
+1:"$Sreact.fragment"
+2:"/app/_next/static/chunks/1ez4jc7k2g2ib.js"
+3:"/app/_next/static/chunks/0ig274md6c41a.js"
+4:"/app/_next/static/chunks/2sy21tw3t1uxe.js"
+5:"/app/_next/static/chunks/2ldtzbr51a1t_.js"
+6:"/app/_next/static/chunks/0g5gpwl6ykokv.js"
+7:I[67592,["$2","$3","$4","$5","$6"],"default"]
+8:I[33912,["$2","$3","$4","$5","$6"],"default"]
+9:I[39756,["$2","$3","$4","$5","$6"],"default"]
+a:"/app/_next/static/chunks/1fy6ip7hlhtkr.js"
+b:I[8821,["$2","$3","$4","$5","$6","$a"],"default"]
+c:I[37457,["$2","$3","$4","$5","$6"],"default"]
+d:I[13183,["$2","$3","$4","$5","$6"],"default"]
+e:I[33877,["$2","$3","$4","$5","$6"],"default"]
+f:I[7503,["$2","$3","$4","$5","$6"],"default"]
+13:"/app/_next/static/chunks/3bf2c05h96xmx.js"
+14:"/app/_next/static/chunks/1_i-dao15l2ts.js"
+15:I[36781,["$2","$3","$4","$5","$6","$13","$14"],"default"]
+16:I[97367,["$2","$3","$4","$5","$6"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:"ViewportBoundary"
+1a:I[97367,["$2","$3","$4","$5","$6"],"$19"]
+1c:"MetadataBoundary"
+1d:I[97367,["$2","$3","$4","$5","$6"],"$1c"]
+1f:"/app/_next/static/chunks/3m19z5f00u9-o.js"
+20:I[53348,["$2","$3","$4","$5","$6","$1f"],"default"]
+:HL["/app/_next/static/chunks/2lztij0vd1dt9.css","style"]
+:HL["/app/_next/static/chunks/28hpn2y4pnjqa.css","style"]
+:HL["/app/_next/static/media/07454f8ad8aaac57-s.p.2kjei9psvcorz.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/app/_next/static/media/f1d25eabcf1db66d-s.p.21se6xk6bxqs6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/app/_next/static/chunks/3m-urasxg1_vz.css","style"]
+:HL["/app/_next/static/chunks/19w7dnd-dpzvv.css","style"]
+11:X
+12:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","$L15",null,{}],[["$","link","0",{"rel":"stylesheet","href":"/app/_next/static/chunks/3m-urasxg1_vz.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/app/_next/static/chunks/3bf2c05h96xmx.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/app/_next/static/chunks/1_i-dao15l2ts.js","async":true,"nonce":"$undefined"}]],["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]]}],"p":false,"v":null}}]]
+10:[["children",{"s":"profile","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$11"},"c":"$Q12"}]]
+0:{"P":null,"c":["","profile",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/app/_next/static/chunks/2lztij0vd1dt9.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/app/_next/static/chunks/28hpn2y4pnjqa.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/app/_next/static/chunks/1ez4jc7k2g2ib.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/app/_next/static/chunks/0ig274md6c41a.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/app/_next/static/chunks/2sy21tw3t1uxe.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/app/_next/static/chunks/2ldtzbr51a1t_.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/app/_next/static/chunks/0g5gpwl6ykokv.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"zKRlWG_variable BMun5a_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){var m;try{m=localStorage.getItem(\"planet-pooyah:theme\")}catch(e){}\nif(m!==\"light\"&&m!==\"dark\"){var h=new Date().getHours();m=h>=7&&h<19?\"light\":\"dark\"}\ndocument.documentElement.dataset.theme=m})()"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var w=window,d=document.documentElement;\nvar app=w.androidBridge||(w.webkit&&w.webkit.messageHandlers&&w.webkit.messageHandlers.bridge);\nvar preview=location.search.indexOf(\"splash\")>=0;\nif(!preview&&(!app||sessionStorage.getItem(\"planet-pooyah:splash\")))return;\nsessionStorage.setItem(\"planet-pooyah:splash\",\"1\");d.dataset.splash=\"\"}catch(e){}})()"}}]]}],["$","body",null,{"children":[["$","$L7",null,{}],["$","$L8",null,{"children":[["$","$L9",null,{"parallelRouterKey":"children","error":"$b","errorStyles":[["$","link","0",{"rel":"stylesheet","href":"/app/_next/static/chunks/19w7dnd-dpzvv.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],"errorScripts":[["$","script","script-0",{"src":"/app/_next/static/chunks/1fy6ip7hlhtkr.js","async":true,"nonce":"$undefined"}]],"template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$Ld",null,{}]]}],["$","$Le",null,{}],["$","$Lf",null,{}]]}]]}]]}],"p":false,"v":null},"c":"$Q10"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1a",null,{"children":"$L1b"}],["$","$L1d",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$17",null,{"name":"Next.Metadata","children":"$L1e"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$20",[["$","link","0",{"rel":"stylesheet","href":"/app/_next/static/chunks/2lztij0vd1dt9.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/app/_next/static/chunks/28hpn2y4pnjqa.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"HkGXxIgVlT10NvjPewQ35"}
+11:C
+1b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#fbf6ea"}]]
+21:I[27201,["$2","$3","$4","$5","$6"],"IconMark"]
+18:null
+1e:[["$","title","0",{"children":"Profile · Planet Pooyah"}],["$","meta","1",{"name":"description","content":"Kids learn Persian letters and discover Iranian heritage with Simorgh, one short lesson at a time."}],["$","link","2",{"rel":"manifest","href":"/app/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","3",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","4",{"name":"apple-mobile-web-app-title","content":"Planet Pooyah"}],["$","meta","5",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","link","6",{"rel":"icon","href":"/app/icon.png?icon.2p_t5nmu1mskt.png","sizes":"256x256","type":"image/png"}],["$","link","7",{"rel":"apple-touch-icon","href":"/app/apple-icon.png?apple-icon.2_tsnslgswr9h.png","sizes":"180x180","type":"image/png"}],["$","$L21","8",{}]]
