@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+    
+    <g transform="translate(60 30.987825847674035) scale(1.2435233160621761)">
+    <clipPath id="planet"><circle r="21"/></clipPath>
+    <circle r="21" fill="#0f7f76"/>
+    <circle cx="-4.2" cy="-4.2" r="21" fill="#17a398" clip-path="url(#planet)"/>
+    <path d="M-41.12328718410658 9.450000000000001 A30 30 0 0 0 -11.75 33.35 L11.75 33.35 A30 30 0 0 0 41.75 3.3500000000000014 L41.75 3.15" fill="none" stroke="#e09a1a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-6.83" cy="50.77" r="5.07" fill="#e09a1a"/><circle cx="6.83" cy="50.77" r="5.07" fill="#e09a1a"/><circle cx="0.00" cy="62.59" r="5.07" fill="#e09a1a"/></g></svg>
